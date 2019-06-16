@@ -1,0 +1,157 @@
+<main id="customerDiv" role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 bg-light" style="margin-top: 56px">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Customer</h1>
+
+  </div>
+
+  <div class="col-md-6">
+    <div class="btn-group" style=" left: 55vw; margin-top: 1vh;">
+      <button type="button" class="btn btn-info nb" data-toggle="modal" data-target="#myModal">New
+        Customer
+      </button>
+      <button onclick="viewAllCus()" class="btn btn-warning nb">View All Customer</button>
+    </div>
+  </div>
+
+  <div class="card text-white bg-light mb-5 rounded" style="max-width: 25rem;">
+    <div class="card-header bg-info">Header</div>
+    <div class="card-body">
+      <form>
+        <div class="form-group">
+          <input type="email" id="cname" class="form-control" aria-describedby="emailHelp"
+                 placeholder="Input Name">
+        </div>
+
+        <button type="button" id="btnsubmit" data-toggle="modal" data-target="#searchmyModal"
+                class="btn btn-primary">Submit
+        </button>
+
+      </form>
+    </div>
+  </div>
+
+
+  <button type="button" class="btn btn-primary">Delete</button>
+  <button type="button" class="btn btn-secondary">Edit</button>
+  <button type="button" class="btn btn-success">Detail</button>
+  <button type="button" class="btn btn-danger">Clear</button>
+
+  <div class="tbl">
+
+    <table class="table table-bordered">
+      <thead class="bg-info">
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Contact NO</th>
+        <th>Salary</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody id="tbody">
+
+      </tbody>
+    </table>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <footer class="copyright">Developed By Shehan
+      <label>@All Right resvered</label>
+    </footer>
+  </div>
+</main>
+
+
+<!--new Customer-->
+
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content" id="mode">
+      <div class="modal-header bg-primary">
+        <h4>New Customer</h4>
+      </div>
+      <div class="card-body">
+        <form>
+
+          <div class="form-group">
+            <label class="lbl">Name</label>
+            <input type="text" id="txtname" class="form-control" placeholder="Customer Name">
+          </div>
+
+
+          <div class="form-group">
+            <label class="lbl">Address</label>
+            <input type="text" id="txtAddress" class="form-control" placeholder="Customer Address">
+          </div>
+
+          <div class="form-group">
+            <label class="lbl">Telephone</label>
+            <input type="text" id="txtTel" class="form-control" placeholder="Customer Contact">
+          </div>
+
+          <div class="form-group">
+            <label class="lbl">Salary</label>
+            <input type="text" id="txtSalary" class="form-control" placeholder="Customer Salary">
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btnCustomerSave" class="btn btn-primary">Save</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!--search customer-->
+
+<div class="modal fade" id="searchmyModal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content" id="mode11">
+      <div class="modal-header bg-warning">
+        <h4>Search Customer</h4>
+      </div>
+      <div class="card-body">
+        <form>
+
+          <div class="form-group">
+            <label class="lbl">Name</label>
+            <input type="text" id="txtSname" class="form-control" placeholder="Customer Name">
+          </div>
+
+
+          <div class="form-group">
+            <label class="lbl">Address</label>
+            <input type="text" id="txtSAddress" class="form-control" placeholder="Customer Address">
+          </div>
+
+          <div class="form-group">
+            <label class="lbl">Telephone</label>
+            <input type="text" id="txtSTel" class="form-control" placeholder="Customer Contact">
+          </div>
+
+          <div class="form-group">
+            <label class="lbl">Salary</label>
+            <input type="text" id="txtSSalary" class="form-control" placeholder="Customer Salary">
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+

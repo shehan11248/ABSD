@@ -1,0 +1,151 @@
+<!----Item-------->
+
+<main id="itemDiv" role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 bg-light" style="margin-top: 56px">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Item</h1>
+
+  </div>
+
+  <div class="col-md-6">
+    <div class="btn-group" style=" left: 55vw; margin-top: 1vh;">
+      <button type="button" class="btn btn-info nb" data-toggle="modal" data-target="#NewItem">New Item
+      </button>
+      <button onclick="getALLItem()" class="btn btn-warning nb">View All Item</button>
+    </div>
+  </div>
+
+  <div class="card text-white bg-light mb-5 rounded" style="max-width: 25rem;">
+    <div class="card-header bg-info">Header</div>
+    <div class="card-body">
+      <form>
+        <div class="form-group">
+          <input type="email" class="form-control" id="Iname"
+                 aria-describedby="emailHelp" placeholder="Input Name">
+        </div>
+
+        <button type="button" id="btnIsubmit" data-toggle="modal" data-target="#searchIt"
+                class="btn btn-primary">Submit
+        </button>
+
+      </form>
+    </div>
+  </div>
+
+  <button type="button" class="btn btn-primary">Delete</button>
+  <button type="button" class="btn btn-secondary">Edit</button>
+  <button type="button" class="btn btn-success">Detail</button>
+  <button type="button" class="btn btn-danger">Clear</button>
+
+  <div class="tbl">
+
+    <table class="table table-bordered">
+      <thead class="bg-info">
+      <tr>
+        <th>Item Code</th>
+        <th>Item Name</th>
+        <th>Item Price</th>
+        <th>Item Quantity</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody id="Itemtbl">
+
+      </tbody>
+    </table>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <footer class="copyrightsText">Developed By Shehan
+      <label>@All Right resvered</label>
+    </footer>
+  </div>
+</main>
+
+
+<!--new Item-->
+
+<div class="modal fade" id="NewItem" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content" id="mode1">
+      <div class="modal-header bg-primary">
+        <h4>New Item</h4>
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="form-group">
+            <label class="lbl">Code</label>
+            <input type="text" id="txtIID" class="form-control" placeholder="Item Code">
+          </div>
+
+          <div class="form-group">
+            <label class="lbl">Name</label>
+            <input type="text" id="txtIname" class="form-control" placeholder="Item Name">
+          </div>
+
+          <div class="form-group">
+            <label class="lbl">Price</label>
+            <input type="text" id="txtIPrice" class="form-control" placeholder="Unit price">
+          </div>
+
+          <div class="form-group">
+            <label class="lbl">QTY</label>
+            <input type="text" id="txtIQTY" class="form-control" placeholder="QTY">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btnItemSave" class="btn btn-primary">Save</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!--new Item search-->
+
+<div class="modal fade" id="searchIt" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content" id="mode13">
+      <div class="modal-header bg-warning">
+        <h4>Search Item</h4>
+      </div>
+      <div class="card-body">
+        <form>
+
+          <div class="form-group">
+            <label class="lbl">Name</label>
+            <input type="text" id="txtSIID" class="form-control" placeholder="Item ID">
+          </div>
+
+
+          <div class="form-group">
+            <label class="lbl">Address</label>
+            <input type="text" id="txtSIName" class="form-control" placeholder="Item Name">
+          </div>
+
+          <div class="form-group">
+            <label class="lbl">Telephone</label>
+            <input type="text" id="txtSIunitprice" class="form-control" placeholder="Unitprice">
+          </div>
+
+          <div class="form-group">
+            <label class="lbl">Salary</label>
+            <input type="text" id="txtSIQTY" class="form-control" placeholder="QTY">
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
