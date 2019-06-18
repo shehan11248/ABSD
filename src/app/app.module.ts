@@ -8,6 +8,7 @@ import {ManageItemComponent} from './view/manage-item/manage-item.component';
 import {DashboardComponent} from './view/dashboard/dashboard.component';
 import {SidebarComponent} from './view/sidebar/sidebar.component';
 import {ManageOrderComponent} from './view/manage-order/manage-order.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {ManageOrderComponent} from './view/manage-order/manage-order.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

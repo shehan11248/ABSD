@@ -6,10 +6,10 @@
 
   <div class="col-md-6">
     <div class="btn-group" style=" left: 55vw; margin-top: 1vh;">
-      <button type="button" class="btn btn-info nb" data-toggle="modal" data-target="#myModal">New
+      <button (click)=doSomething() type="button" class="btn btn-info nb">New
         Customer
       </button>
-      <button onclick="viewAllCus()" class="btn btn-warning nb">View All Customer</button>
+      <button class="btn btn-warning nb">View All Customer</button>
     </div>
   </div>
 
@@ -22,12 +22,49 @@
                  placeholder="Input Name">
         </div>
 
-        <button type="button" id="btnsubmit" data-toggle="modal" data-target="#searchmyModal"
+        <button type="button" id="btnsubmit"
                 class="btn btn-primary">Submit
         </button>
 
       </form>
     </div>
+  </div>
+
+
+  <div *ngIf="status" class="card text-white bg-light mb-5 rounded" style="max-width: 25rem;">
+    <div class="card-header bg-info">Customer Details</div>
+    <div class="card-body">
+      <form>
+
+        <label class="lbl">Customer</label>
+
+        <select class="styleSelect" id="cmbCustomer">
+          <option>Select Customer</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+
+        <div class="form-group">
+          <label class="lbl">Address</label>
+          <input type="email" id="txtAdd" class="form-control"
+                 aria-describedby="emailHelp">
+        </div>
+
+        <div class="form-group">
+          <label class="lbl">Telephone</label>
+          <input type="email" id="txttp" class="form-control"
+                 aria-describedby="emailHelp">
+        </div>
+
+        <div class="form-group">
+          <label class="lbl">Salary</label>
+          <input type="email" id="txtsal" class="form-control"
+                 aria-describedby="emailHelp">
+        </div>
+
+      </form>
+    </div>
+
   </div>
 
 
@@ -45,11 +82,15 @@
         <th>Address</th>
         <th>Contact NO</th>
         <th>Salary</th>
-        <th></th>
       </tr>
       </thead>
       <tbody id="tbody">
-
+      <tr *ngFor="let customer of customers" (click)="selectedCustomer=customer">
+        <td>{{customer.id}}</td>
+        <td>{{customer.name}}</td>
+        <td>{{customer.address}}</td>
+        <td>{{customer.salary}}</td>
+      </tr>
       </tbody>
     </table>
 
@@ -64,94 +105,4 @@
   </div>
 </div>
 
-
-<!--new Customer-->
-
-<div class="modal fade" id="myModal" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content" id="mode">
-      <div class="modal-header bg-primary">
-        <h4>New Customer</h4>
-      </div>
-      <div class="card-body">
-        <form>
-
-          <div class="form-group">
-            <label class="lbl">Name</label>
-            <input type="text" id="txtname" class="form-control" placeholder="Customer Name">
-          </div>
-
-
-          <div class="form-group">
-            <label class="lbl">Address</label>
-            <input type="text" id="txtAddress" class="form-control" placeholder="Customer Address">
-          </div>
-
-          <div class="form-group">
-            <label class="lbl">Telephone</label>
-            <input type="text" id="txtTel" class="form-control" placeholder="Customer Contact">
-          </div>
-
-          <div class="form-group">
-            <label class="lbl">Salary</label>
-            <input type="text" id="txtSalary" class="form-control" placeholder="Customer Salary">
-          </div>
-
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" id="btnCustomerSave" class="btn btn-primary">Save</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-
-<!--search customer-->
-
-<div class="modal fade" id="searchmyModal" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content" id="mode11">
-      <div class="modal-header bg-warning">
-        <h4>Search Customer</h4>
-      </div>
-      <div class="card-body">
-        <form>
-
-          <div class="form-group">
-            <label class="lbl">Name</label>
-            <input type="text" id="txtSname" class="form-control" placeholder="Customer Name">
-          </div>
-
-
-          <div class="form-group">
-            <label class="lbl">Address</label>
-            <input type="text" id="txtSAddress" class="form-control" placeholder="Customer Address">
-          </div>
-
-          <div class="form-group">
-            <label class="lbl">Telephone</label>
-            <input type="text" id="txtSTel" class="form-control" placeholder="Customer Contact">
-          </div>
-
-          <div class="form-group">
-            <label class="lbl">Salary</label>
-            <input type="text" id="txtSSalary" class="form-control" placeholder="Customer Salary">
-          </div>
-
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
 
