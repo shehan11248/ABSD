@@ -9,6 +9,7 @@ import {DashboardComponent} from './view/dashboard/dashboard.component';
 import {SidebarComponent} from './view/sidebar/sidebar.component';
 import {ManageOrderComponent} from './view/manage-order/manage-order.component';
 import {HttpClientModule} from "@angular/common/http";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import {HttpClientModule} from "@angular/common/http";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

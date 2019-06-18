@@ -6,7 +6,7 @@
 
   <div class="col-md-6">
     <div class="btn-group" style=" left: 55vw; margin-top: 1vh;">
-      <button (click)=doSomething() type="button" class="btn btn-info nb">New
+      <button (click)=doSomething();newCustomer() type="button" class="btn btn-info nb">New
         Customer
       </button>
       <button class="btn btn-warning nb">View All Customer</button>
@@ -34,35 +34,36 @@
   <div *ngIf="status" class="card text-white bg-light mb-5 rounded" style="max-width: 25rem;">
     <div class="card-header bg-info">Customer Details</div>
     <div class="card-body">
-      <form>
+      <form (ngSubmit)="saveCustomer()" #frmCustomer="ngForm">
 
         <label class="lbl">Customer</label>
 
-        <select class="styleSelect" id="cmbCustomer">
-          <option>Select Customer</option>
-        </select>
-        <button type="submit" class="btn btn-primary">Submit</button>
-
-
-        <div class="form-group">
-          <label class="lbl">Address</label>
-          <input type="email" id="txtAdd" class="form-control"
-                 aria-describedby="emailHelp">
-        </div>
-
-        <div class="form-group">
-          <label class="lbl">Telephone</label>
-          <input type="email" id="txttp" class="form-control"
-                 aria-describedby="emailHelp">
-        </div>
-
-        <div class="form-group">
-          <label class="lbl">Salary</label>
-          <input type="email" id="txtsal" class="form-control"
-                 aria-describedby="emailHelp">
-        </div>
+        <p class="form-group">
+          <label>Customer ID</label>
+          <input #txtId name="txtId" [(ngModel)]="selectedCustomer.id" class="form-control" type="text" required
+                 pattern="^C\d{3}$">
+        </p>
+        <p class="form-group">
+          <label>Customer Name</label>
+          <input name="txtName" class="form-control" type="text" [(ngModel)]="selectedCustomer.name" required
+                 pattern="\w{4}.+">
+        </p>
+        <p class="form-group">
+          <label>Customer Address</label>
+          <input name="txtAddress" class="form-control" type="text" [(ngModel)]="selectedCustomer.address" required
+                 pattern="\w{4}.+">
+        </p>
+        <p class="form-group">
+          <label>Customer Salary</label>
+          <input name="txtSalary" class="form-control" type="text" [(ngModel)]="selectedCustomer.salary" required
+                 pattern="\w{4}.+">
+        </p>
+        <p>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </p>
 
       </form>
+
     </div>
 
   </div>
@@ -85,7 +86,7 @@
       </tr>
       </thead>
       <tbody id="tbody">
-      <tr *ngFor="let customer of customers" (click)="selectedCustomer=customer">
+      <tr *ngFor="let customer of customers" (click)="tableRow_Click(customer);doSomething()">
         <td>{{customer.id}}</td>
         <td>{{customer.name}}</td>
         <td>{{customer.address}}</td>
