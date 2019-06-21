@@ -111,7 +111,7 @@
               <div class="form-group">
                 <label class="lbl">Customer</label>
                 <input id="txtcName" type="email" class="form-control"
-                       aria-describedby="emailHelp" value={{CID}} #CID>
+                       aria-describedby="emailHelp" value={{CID}}>
               </div>
 
               <div class="form-group">
@@ -125,7 +125,7 @@
               </div>
 
               <button id="orderdt" type="button" class="btn btn-success"
-                      (click)="saveOrder(CID.value,Dates.value,OID.value)">Submit Orders
+                      (click)="saveOrder(Dates.value,OID.value)">Submit Orders
               </button>
 
             </form>
