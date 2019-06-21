@@ -111,17 +111,18 @@
               <div class="form-group">
                 <label class="lbl">Customer</label>
                 <input id="txtcName" type="email" class="form-control"
-                       aria-describedby="emailHelp" value={{CID}}>
+                       aria-describedby="emailHelp" name="cid" value={{CID}} [(ngModel)]="selectedOrder.customerID">
               </div>
 
               <div class="form-group">
                 <label class="lbl">Date</label>
-                <input type="date" class="styleDate" #Dates>
+                <input type="date" class="styleDate" #Dates name="Dates" [(ngModel)]="selectedOrder.date">
               </div>
 
               <div class="form-group">
                 <label class="lbl">Orders ID</label>
-                <input id="txtOrderID" type="email" class="form-control" aria-describedby="emailHelp" #OID>
+                <input id="txtOrderID" type="email" class="form-control" aria-describedby="emailHelp" #OID
+                       name="OrderID" [(ngModel)]="selectedOrder.orderID">
               </div>
 
               <button id="orderdt" type="button" class="btn btn-success"

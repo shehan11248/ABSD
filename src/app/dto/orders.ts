@@ -1,6 +1,6 @@
 export class Orders {
 
-  constructor(public orderID: String, public date: String, public customerID: String) {
+  constructor(public orderID: string, public date: string, public customerID: string) {
   }
 
 }
