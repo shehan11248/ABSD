@@ -12,7 +12,7 @@ export class ManageItemComponent implements OnInit {
 
   items: Item[] = [];
   status: boolean = false;
-  selectedItem: Item = new Item('', '', 0, 0);
+  selectedItem: Item = new Item('', '', '', '');
 
   @ViewChild('txtId', {static: true}) txtId: ElementRef;
   @ViewChild('frmItem', {static: true}) frmItem: NgForm;

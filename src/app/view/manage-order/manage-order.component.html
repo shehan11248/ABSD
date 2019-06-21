@@ -111,21 +111,22 @@
               <div class="form-group">
                 <label class="lbl">Customer</label>
                 <input id="txtcName" type="email" class="form-control"
-                       aria-describedby="emailHelp" value={{CID}}>
+                       aria-describedby="emailHelp" value={{CID}} #CID>
               </div>
 
               <div class="form-group">
                 <label class="lbl">Date</label>
-                <input type="date" class="styleDate">
+                <input type="date" class="styleDate" #Dates>
               </div>
 
               <div class="form-group">
                 <label class="lbl">Orders ID</label>
-                <input id="txtOrderID" type="email" class="form-control" aria-describedby="emailHelp"
-                >
+                <input id="txtOrderID" type="email" class="form-control" aria-describedby="emailHelp" #OID>
               </div>
 
-              <button id="orderdt" type="button" class="btn btn-success" (click)="saveOrder()">Submit Orders</button>
+              <button id="orderdt" type="button" class="btn btn-success"
+                      (click)="saveOrder(CID.value,Dates.value,OID.value)">Submit Orders
+              </button>
 
             </form>
           </div>

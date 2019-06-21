@@ -64,8 +64,8 @@ export class ManageOrderComponent implements OnInit {
     this.tblorderitem.push(new OrderItem(this.itemcode, this.description, Number(value), (Number(value) * Number(this.unitprice))));
   }
 
-  saveOrder() {
-    this.orderService.saveOrder(new Orders('D103', '2019-09-10', "C010"), this.tblorderitem).subscribe(resp => {
+  saveOrder(oid: string, dates: string, cid: string) {
+    this.orderService.saveOrder(new Orders(oid, dates, cid), this.tblorderitem).subscribe(resp => {
       console.log(resp);
     })
 
