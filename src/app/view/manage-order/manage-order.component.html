@@ -1,7 +1,7 @@
 <main id="orderDiv" role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 bg-light"
       style="margin-top: 56px">
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Order</h1>
+    <h1 class="h2">Orders</h1>
 
   </div>
 
@@ -13,32 +13,34 @@
         <div class="card text-white bg-light mb-5 rounded" style="max-width: 25rem;">
           <div class="card-header bg-info">Customer Details</div>
           <div class="card-body">
-            <form>
+            <form #frmOrder="ngForm">
 
               <label class="lbl">Customer</label>
 
-              <select class="styleSelect" id="cmbCustomer">
+              <select class="styleSelect" id="cmbCustomer" (click)="getID($event)">
                 <option>Select Customer</option>
+                <option *ngFor="let customer of customers " value={{customer.id}}>{{customer.id}}</option>
               </select>
               <button type="submit" class="btn btn-primary">Submit</button>
 
 
               <div class="form-group">
-                <label class="lbl">Address</label>
+                <label class="lbl">Name</label>
                 <input type="email" id="txtAdd" class="form-control"
-                       aria-describedby="emailHelp">
+                       aria-describedby="emailHelp" name="Cname" [(ngModel)]="names">
+
               </div>
 
               <div class="form-group">
-                <label class="lbl">Telephone</label>
+                <label class="lbl">Address</label>
                 <input type="email" id="txttp" class="form-control"
-                       aria-describedby="emailHelp">
+                       aria-describedby="emailHelp" name="CAddress" [(ngModel)]="address">
               </div>
 
               <div class="form-group">
                 <label class="lbl">Salary</label>
                 <input type="email" id="txtsal" class="form-control"
-                       aria-describedby="emailHelp">
+                       aria-describedby="emailHelp" name="CSalary" [(ngModel)]="salary">
               </div>
 
             </form>
@@ -56,32 +58,42 @@
             <form>
 
               <label class="lbl">Item</label>
-              <select class="styleSelect" id="cmbItem" style="width: 100%">
+              <select class="styleSelect" id="cmbItem" style="width: 100%" (click)="getIID($event)">
                 <option>Select Item</option>
+                <option *ngFor="let item of items " value={{item.code}}>{{item.code}}</option>
               </select>
+
+              <div class="form-group">
+                <label class="lbl">Name</label>
+                <input id="txtname" type="email" class="form-control"
+                       aria-describedby="emailHelp" name="IN" [(ngModel)]="description">
+              </div>
 
               <div class="form-group">
                 <label class="lbl">Price</label>
                 <input id="txtprice" type="email" class="form-control"
-                       aria-describedby="emailHelp">
+                       aria-describedby="emailHelp" name="Ip" [(ngModel)]="unitprice">
               </div>
 
               <div class="form-group">
                 <label class="lbl">QTY</label>
                 <input id="txtQTY" type="email" class="form-control"
-                       aria-describedby="emailHelp">
+                       aria-describedby="emailHelp" name="IQ" [(ngModel)]="qty">
               </div>
 
               <hr>
-              <label id="lbl">Order Item</label>
+              <label id="lbl">Orders Item</label>
               <hr>
 
               <div class="form-group">
-                <label class="lbl">Order QTY</label>
+                <label class="lbl">Orders QTY</label>
                 <input id="txtOQTY" type="email" class="form-control"
-                       aria-describedby="emailHelp">
+                       aria-describedby="emailHelp" #emailinput name="IOQ">
               </div>
 
+              <button id="ord" type="button" class="btn btn-success" (click)="onAddtoTable(emailinput.value)">Submit
+                Orders
+              </button>
             </form>
           </div>
 
@@ -99,7 +111,7 @@
               <div class="form-group">
                 <label class="lbl">Customer</label>
                 <input id="txtcName" type="email" class="form-control"
-                       aria-describedby="emailHelp">
+                       aria-describedby="emailHelp" value={{CID}}>
               </div>
 
               <div class="form-group">
@@ -108,11 +120,12 @@
               </div>
 
               <div class="form-group">
-                <label class="lbl">Order ID</label>
-                <input id="txtOrderID" type="email" class="form-control" aria-describedby="emailHelp">
+                <label class="lbl">Orders ID</label>
+                <input id="txtOrderID" type="email" class="form-control" aria-describedby="emailHelp"
+                >
               </div>
 
-              <button id="orderdt" type="button" class="btn btn-success">Submit Order</button>
+              <button id="orderdt" type="button" class="btn btn-success" (click)="saveOrder()">Submit Orders</button>
 
             </form>
           </div>
@@ -131,20 +144,20 @@
     <table class="table table-bordered">
       <thead class="bg-info">
       <tr>
-        <th>Order ID</th>
-        <th>Customer</th>
         <th>Item</th>
-        <th>Order QTY</th>
-        <th>Amount</th>
-        <th></th>
+        <th>Description</th>
+        <th>Orders QTY</th>
+        <th>Sub Price</th>
       </tr>
-
-      <br>
-      <br>
-
       </thead>
       <tbody id="tblOrder">
 
+      <tr *ngFor="let items of tblorderitem">
+        <td>{{items?.code}}</td>
+        <td>{{items?.description}}</td>
+        <td>{{items?.qty}}</td>
+        <td>{{items?.subPrice}}</td>
+      </tr>
       </tbody>
     </table>
 
@@ -158,7 +171,7 @@
     </section>
     <section id="order-last-buttons">
       <button type="button" class="btn btn-primary">Clear</button>
-      <button type="button" class="btn btn-secondary">Renew Order</button>
+      <button type="button" class="btn btn-secondary">Renew Orders</button>
     </section>
 
     <footer id="copyrightsText">Developed By Shehan

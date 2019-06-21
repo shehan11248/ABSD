@@ -31,6 +31,7 @@ export class ManageCustomersComponent implements OnInit {
     this.status = this.status ? false : true
   }
 
+
   tableRow_Click(customer: Customer): void {
     this.selectedCustomer = Object.assign({}, customer);
   }
@@ -44,6 +45,7 @@ export class ManageCustomersComponent implements OnInit {
 
       this.customerService.saveCustomer(this.selectedCustomer)
         .subscribe(resp => {
+          console.log(resp);
           if (resp) {
             alert('Customer has been saved successfully');
             this.customers.push(this.selectedCustomer);

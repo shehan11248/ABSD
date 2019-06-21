@@ -31,10 +31,46 @@
     </div>
   </div>
 
-  <button type="button" class="btn btn-primary">Delete</button>
-  <button type="button" class="btn btn-secondary">Edit</button>
-  <button type="button" class="btn btn-success">Detail</button>
-  <button type="button" class="btn btn-danger">Clear</button>
+  <div class="card text-white bg-light mb-5 rounded" style="max-width: 25rem;">
+    <div class="card-header bg-info">New Item</div>
+    <div class="card-body">
+      <form (ngSubmit)="saveItem()" #frmItem="ngForm">
+
+        <label class="lbl">Item</label>
+
+        <p class="form-group">
+          <label>Item ID</label>
+          <input #txtIId name="txtIId" [(ngModel)]="selectedItem.code" class="form-control" type="text" required
+                 pattern="^P\d{3}$">
+        </p>
+        <p class="form-group">
+          <label>Description</label>
+          <input name="txtIName" class="form-control" type="text" [(ngModel)]="selectedItem.description" required
+                 pattern="\w{4}.+">
+        </p>
+        <p class="form-group">
+          <label>Qty On Hand</label>
+          <input name="txtIAddress" class="form-control" type="text" [(ngModel)]="selectedItem.qtyOnHand" required
+                 pattern="\w{1}.+">
+        </p>
+        <p class="form-group">
+          <label>UnitPrice</label>
+          <input name="txtISalary" class="form-control" type="text" [(ngModel)]="selectedItem.unitPrice" required
+                 pattern="\w{2}.+">
+        </p>
+        <p>
+          <button type="submit" class="btn btn-primary">Save</button>
+          <button type="button" class="btn btn-danger">Delete</button>
+          <button type="button" class="btn btn-warning">Edit</button>
+          <button type="button" class="btn btn-danger">Clear</button>
+        </p>
+
+
+      </form>
+
+    </div>
+
+  </div>
 
   <div class="tbl">
 
@@ -48,7 +84,7 @@
       </tr>
       </thead>
       <tbody id="Itemtbl">
-      <tr *ngFor="let item of items">
+      <tr *ngFor="let item of items" (click)="tableRow_Click(item)">
         <td>{{item.code}}</td>
         <td>{{item.description | uppercase}}</td>
         <td>{{item.unitPrice | number:'1.2-2'}}</td>

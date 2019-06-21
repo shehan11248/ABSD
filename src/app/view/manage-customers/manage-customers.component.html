@@ -31,8 +31,8 @@
   </div>
 
 
-  <div *ngIf="status" class="card text-white bg-light mb-5 rounded" style="max-width: 25rem;">
-    <div class="card-header bg-info">Customer Details</div>
+  <div class="card text-white bg-light mb-5 rounded" style="max-width: 25rem;">
+    <div class="card-header bg-info">Customer Mangage</div>
     <div class="card-body">
       <form (ngSubmit)="saveCustomer()" #frmCustomer="ngForm">
 
@@ -60,7 +60,11 @@
         </p>
         <p>
           <button type="submit" class="btn btn-primary">Save</button>
+          <button type="button" class="btn btn-danger">Delete</button>
+          <button type="button" class="btn btn-warning">Edit</button>
+          <button type="button" class="btn btn-danger">Clear</button>
         </p>
+
 
       </form>
 
@@ -68,11 +72,6 @@
 
   </div>
 
-
-  <button type="button" class="btn btn-primary">Delete</button>
-  <button type="button" class="btn btn-secondary">Edit</button>
-  <button type="button" class="btn btn-success">Detail</button>
-  <button type="button" class="btn btn-danger">Clear</button>
 
   <div class="tbl">
 
